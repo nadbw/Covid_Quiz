@@ -33,9 +33,8 @@ class quizUser(models.Model):
         choices=YearInSchool.choices,
         default=YearInSchool.FRESHMAN
     )
-    
-    # covidScore = models.IntegerField(default=0)
-    # quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)
+    covidScore = models.IntegerField(default=0)
+    quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)
     # isOnCampus = models.BooleanField(default=False)
     #implement more specific location field
 

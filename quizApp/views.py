@@ -10,7 +10,9 @@ def covidQuiz_view(request):
     if request.method == 'POST':
         user = quizUser.objects.create(
             school=request.POST['School'],
-            year_in_school=request.POST['Year']
+            year_in_school=request.POST['Year'],
+            quiz=Quiz.objects.get(title="Covid Quiz")
+            
         )
     return render(request, 'covidQuiz.html')
 
