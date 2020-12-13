@@ -35,11 +35,14 @@ class quizUser(models.Model):
     )
     covidScore = models.IntegerField(default=0)
     quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)
-    questions =models.ManyToManyField('Question') 
     # isOnCampus = models.BooleanField(default=False)
     #implement more specific location field
 
 class Question(models.Model):
+    quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)
+    body = models.CharField(max_length=200, default="Default Question")
+
+class Response(models.Model):
     class Answer(models.TextChoices):
         NEVER = 'NEVER', _('Never')
         ONCE_PM = 'ONCE_PM', _('Once/few times per month')
@@ -51,5 +54,5 @@ class Question(models.Model):
         choices=Answer.choices,
         default=Answer.NEVER
     )
-    quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE)
-    body = models.CharField(max_length=200, default="Default Question")
+    user = models.ForeignKey(quizUser, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)

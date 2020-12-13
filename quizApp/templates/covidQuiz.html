@@ -10,25 +10,30 @@
   </head>
   <body>
       <h1 class="m-3 text-center">Covid Quiz Page</h1>
-      <form method="POST" action="/dataVis/">
-        {% csrf_token %}
-        {% for question in questions %}
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="neverCheckBox" value="optionNever">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="oncePMCheckBox" value="optionOncePM">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="oncePWCheckBox" value="optionOncePW">
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="everydayCheckBox" value="optionEveryday">
-        </div>
-        <label class="form-label ml-3">{{question.body}}</label>
-        {% endfor %}
-        <input class="btn btn-primary m-3" type="submit" value='Calculate Score'>
-      </form>
+     
+          <form method="POST" action="/dataVis/">
+            {% csrf_token %}
+            {% for question in questions %}
+            <div class="row">
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="checkbox" id="neverCheckBox" value="optionNever">
+              </div>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="checkbox" id="oncePMCheckBox" value="optionOncePM">
+              </div>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="checkbox" id="oncePWCheckBox" value="optionOncePW">
+              </div>
+              <div class="form-check form-check-inline ml-3">
+                <input class="form-check-input" type="checkbox" id="everydayCheckBox" value="optionEveryday">
+              </div>
+              <label class="form-label ml-3">{{question.body}}</label>
+            </div>
+            {% endfor %}
+            <div class="row">
+              <input class="btn btn-primary m-3" type="submit" value='Calculate Score'>
+            </div>
+          </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
