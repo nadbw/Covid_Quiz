@@ -17,7 +17,8 @@ def dataVis_view(request):
     pass
 
 def createUser_view(request):
-    user = quizUser.objects.create_user(
+    print("Creating User")
+    user = quizUser.objects.create(
         school=request.POST['School']
     )
     return redirect('covidQuiz_view')

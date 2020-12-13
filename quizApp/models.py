@@ -8,8 +8,7 @@ class Quiz(models.Model):
         return self.title
 
 class quizUser(models.Model):
-
-    class School(models.TextChoices):
+    class pennSchool(models.TextChoices):
         SAS = 'SAS', _('SAS')
         SEAS = 'SEAS', _('SEAS')
         NURS = 'NURS', _('Nursing')
@@ -18,8 +17,8 @@ class quizUser(models.Model):
         DEFAULT = 'DEFAULT', _('Default')
     school = models.CharField(
         max_length=10,
-        choices=School.choices,
-        default=School.DEFAULT
+        choices=pennSchool.choices,
+        default=pennSchool.DEFAULT
     )
 
     # class YearInSchool(models.TextChoices):
