@@ -13,8 +13,11 @@ def covidQuiz_view(request):
             year_in_school=request.POST['Year'],
             quiz=Quiz.objects.get(title="Covid Quiz")
         )
+        # clear questions for new user, write covid quiz questions, store in questions
+        Question.objects.filter(quiz__title="Covid Quiz").delete()
         write_covidQuiz_questions(user.id)
         questions = Question.objects.filter(quiz__title="Covid Quiz")
+        
     args = {'user':user, 'questions':questions}
     return render(request, 'covidQuiz.html', args)
 
@@ -29,6 +32,3 @@ def write_covidQuiz_questions(userID):
         quiz=covidQuiz,
         body="How often do you eat in a restaurant outside",
     )
-    questions = Question.objects.filter(quiz__title="Covid Quiz")
-    for question in questions:
-        currUser.questions.add(question)
