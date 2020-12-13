@@ -21,18 +21,18 @@ class quizUser(models.Model):
         default=pennSchool.DEFAULT
     )
 
-    # class YearInSchool(models.TextChoices):
-    #     FRESHMAN = 'FR', _('Freshman')
-    #     SOPHOMORE = 'SO', _('Sophomore')
-    #     JUNIOR = 'JR', _('Junior')
-    #     SENIOR = 'SR', _('Senior')
-    #     GRADUATE = 'GR', _('Graduate')
+    class YearInSchool(models.TextChoices):
+        FRESHMAN = 'Freshman', _('Freshman')
+        SOPHOMORE = 'Sophomore', _('Sophomore')
+        JUNIOR = 'Junior', _('Junior')
+        SENIOR = 'Senior', _('Senior')
+        GRADUATE = 'Graduate', _('Graduate')
 
-    # year_in_school = models.CharField(
-    #     max_length=2,
-    #     choices=YearInSchool.choices,
-    #     default=YearInSchool.FRESHMAN
-    # )
+    year_in_school = models.CharField(
+        max_length=10,
+        choices=YearInSchool.choices,
+        default=YearInSchool.FRESHMAN
+    )
     
     # covidScore = models.IntegerField(default=0)
     # quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)

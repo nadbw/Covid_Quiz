@@ -9,7 +9,8 @@ def home_view(request):
 def covidQuiz_view(request):
     if request.method == 'POST':
         user = quizUser.objects.create(
-            school=request.POST['School']
+            school=request.POST['School'],
+            year_in_school=request.POST['Year']
         )
     return render(request, 'covidQuiz.html')
 
