@@ -35,6 +35,7 @@ class quizUser(models.Model):
     )
     covidScore = models.IntegerField(default=0)
     quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE, default=1)
+    questions =models.ManyToManyField('Question') 
     # isOnCampus = models.BooleanField(default=False)
     #implement more specific location field
 
@@ -52,4 +53,3 @@ class Question(models.Model):
     )
     quiz = models.ForeignKey('Quiz', on_delete=models.CASCADE)
     body = models.CharField(max_length=200, default="Default Question")
-    user = models.ForeignKey('quizUser', on_delete=models.CASCADE, default=1)
