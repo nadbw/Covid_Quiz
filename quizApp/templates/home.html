@@ -14,14 +14,14 @@
         <form method="POST" action="/createUser/">
           {% csrf_token %}
            <label>School</label>
-           <input name="School" placeholder="school" />
-           <!-- <select name="School" class="form-control">
+           <!-- <input name="School" placeholder="school" /> -->
+           <select name="School" class="form-control">
               <option>SAS</option>
               <option>SEAS</option>
               <option>Nursing</option>
               <option>Wharton</option>
               <option>Graduate</option>
-            </select> -->
+            </select>
           <input class="btn btn-primary m-3" type="submit" value='Take Quiz'>
         </form>
       </div>

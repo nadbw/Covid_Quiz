@@ -11,10 +11,10 @@ class quizUser(models.Model):
     class pennSchool(models.TextChoices):
         SAS = 'SAS', _('SAS')
         SEAS = 'SEAS', _('SEAS')
-        NURS = 'NURS', _('Nursing')
-        WHAR = 'WHAR', _('Wharton')
-        GRAD = 'GRAD', _('Graduate')
-        DEFAULT = 'DEFAULT', _('Default')
+        NURS = 'Nursing', _('Nursing')
+        WHAR = 'Wharton', _('Wharton')
+        GRAD = 'Graduate', _('Graduate')
+        DEFAULT = 'Default', _('Default')
     school = models.CharField(
         max_length=10,
         choices=pennSchool.choices,
